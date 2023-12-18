@@ -4,7 +4,7 @@ const redis = new Redis({
     port: 6379
 });
 
-const enqueueMessage = async (key, message) => redis.lpush(key, message);
+const enqueueMessage = async (key, message) => redis.rpush(key, message);
 
 const dequeueMessage = async (key) => redis.lpop(key);
 
