@@ -12,9 +12,6 @@ const { getFromQueue, postToQueue } = require('./services/queueService');
 const app = express();
 app.use(bodyParser.json());
 
-const queueMap = {};
-
-
 const router = express.Router();
 router.post('/*', requestBodyValidator, async (req, res) => {
     const queueName = req.path;
