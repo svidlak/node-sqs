@@ -8,4 +8,6 @@ const enqueueMessage = async (key, message) => redis.lpush(key, message);
 
 const dequeueMessage = async (key) => redis.lpop(key);
 
-module.exports = { enqueueMessage, dequeueMessage }
+const shutdown = () => redis.disconnect()
+
+module.exports = { enqueueMessage, dequeueMessage, shutdown }
